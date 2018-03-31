@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  js.poa.br:
+    image: nginx:mainline-alpine
+    container_name: js.poa.br
+    labels:
+      - "traefik.frontend.entryPoints=https,http"
+      - "traefik.frontend.redirect.entryPoint=https"
+      - "traefik.frontend.rule=Host:js.poa.br,js.local.dona.to"
+    volumes:
+      - ./public:/usr/share/nginx/html/:ro
+    networks:
+      - router
+    restart: always
+
+networks:
+  router:
+    external:
+      name: router
