@@ -5,6 +5,7 @@ services:
     image: nginx:mainline-alpine
     container_name: js.poa.br
     labels:
+      - "traefik.enable=true"
       - "traefik.frontend.entryPoints=https,http"
       - "traefik.frontend.redirect.entryPoint=https"
       - "traefik.frontend.rule=Host:js.poa.br,js.local.dona.to"
