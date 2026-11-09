@@ -1,0 +1,3 @@
+kind = "static"
+name = "jspoa"
+hosts = ["js.poa.br", "www.js.poa.br"]
